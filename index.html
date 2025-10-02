@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Você ♡ Especial</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="floating-hearts">
+    <span class="heart-float">♡</span>
+    <span class="heart-float">♡</span>
+    <span class="heart-float">♡</span>
+    <span class="heart-float">♡</span>
+    <span class="heart-float">♡</span>
+    <span class="heart-float">♡</span>
+  </div>
+
+  <audio id="backgroundMusic" loop>
+    <source src="audio/ordinary.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-toggle" id="musicToggle">
+    <span class="music-icon">🎵</span>
+    <span class="music-text">Tocar Música</span>
+  </button>
+
+  <div class="container">
+    <header class="devotional-header">
+      <div class="header-sparkle">🔥</div>
+      <h1>Para minha jogadora favorita</h1>
+      <p class="subtitle">Um presente cheio de surpresas, mas um pouco diferente... ♡</p>
+      <div class="header-sparkle">🔥</div>
+    </header>
+
+    <main class="devotional-content">
+      <!-- Desafio Secreto -->
+      <section class="challenge-section">
+        <h2 class="section-title">Desafio Secreto</h2>
+        <div class="challenge-box">
+          <p class="challenge-intro">Prepare-se... cada clique revela um novo desafio 🔥</p>
+          <button class="challenge-btn" id="challengeBtn">Descobrir o Segredo</button>
+          <div class="challenge-result" id="challengeResult"></div>
+        </div>
+      </section>
+
+      <!-- Roleta Picante -->
+      <section class="roulette-section">
+        <h2 class="section-title">Roleta do Amor</h2>
+        <div class="roulette-container">
+          <div class="roulette-wheel" id="rouletteWheel">
+            <div class="roulette-arrow">▼</div>
+            <canvas id="rouletteCanvas" width="350" height="350"></canvas>
+          </div>
+          <button class="roulette-btn" id="rouletteBtn">Girar a Roleta</button>
+          <div class="roulette-result" id="rouletteResult"></div>
+        </div>
+      </section>
+
+      <!-- Quiz Apimentado -->
+      <section class="quiz-section">
+        <h2 class="section-title">Quiz</h2>
+        <div class="quiz-container" id="quizContainer">
+          <div class="quiz-question" id="quizQuestion"></div>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-answer" id="quizAnswer"></div>
+        </div>
+      </section>
+
+      <!-- Fotos e Recompensas -->
+      <section class="photo-section">
+        <h2 class="section-title">Missão Fotográfica</h2>
+        <div class="photo-box">
+          <p class="photo-intro">Complete os desafios fotográficos... se tiver coragem 📸🔥</p>
+          <div class="photo-challenges" id="photoChallenges"></div>
+        </div>
+      </section>
+
+      <!-- Mensagem Codificada -->
+      <section class="coded-section">
+        <h2 class="section-title">Mensagem Codificada</h2>
+        <div class="coded-box">
+          <div class="coded-message blurred" id="codedMessage">
+            Ainda que eu te veja todos os dias, é impossível que eu não sinta sua falta em todos eles.
+Mal posso esperar para te ver e matar essa saudade toda e te sentir por perto, sentir seu toque, seu cheiro, sua boca, seu corpo.. 🔥❤️
+          </div>
+          <button class="unlock-btn" id="unlockBtn">Desbloquear Mensagem</button>
+          <div class="unlock-challenge" id="unlockChallenge"></div>
+        </div>
+      </section>
+
+<!-- Playlist Secreta -->
+<section class="playlist-section">
+  <h2 class="section-title">Playlist Secreta</h2>
+  <div class="playlist-box">
+    <p class="playlist-intro">Músicas para quando você pensar em mim... 🎵🔥</p>
+    <div class="playlist-items">
+      <div class="playlist-item" data-song="earned-it">
+        <span class="song-icon play-icon">▶️</span>
+        <div class="song-info">
+          <div class="song-name">Earned It - The Weeknd</div>
+          <div class="song-desc">Para quando você lembrar do meu toque...</div>
+        </div>
+        <audio class="song-audio">
+          <source src="audio/earned-it.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="playlist-item" data-song="climax">
+        <span class="song-icon play-icon">▶️</span>
+        <div class="song-info">
+          <div class="song-name">Garota de Ipanema - Tom Jobim</div>
+          <div class="song-desc">O que eu sinto quando te vejo...</div>
+        </div>
+        <audio class="song-audio">
+          <source src="audio/ipanema.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="playlist-item" data-song="rocket">
+        <span class="song-icon play-icon">▶️</span>
+        <div class="song-info">
+          <div class="song-name">Fix You - Coldplay</div>
+          <div class="song-desc">Para quando a saudade apertar...</div>
+        </div>
+        <audio class="song-audio">
+          <source src="audio/fix-you.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="playlist-item" data-song="pillowtalk">
+        <span class="song-icon play-icon">▶️</span>
+        <div class="song-info">
+          <div class="song-name">Pillowtalk - Zayn</div>
+          <div class="song-desc">Nossos momentos mais íntimos...</div>
+        </div>
+        <audio class="song-audio">
+          <source src="audio/pillowtalk.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="playlist-item" data-song="slow-down">
+        <span class="song-icon play-icon">▶️</span>
+        <div class="song-info">
+          <div class="song-name">Aliança - Tribalistas</div>
+          <div class="song-desc">O que eu mais quero viver com você...</div>
+        </div>
+        <audio class="song-audio">
+          <source src="audio/alianca.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+    <a href="https://open.spotify.com" target="_blank" class="playlist-btn">Abrir no Spotify</a>
+  </div>
+</section>
+
+
+      <!-- Mapa do Corpo -->
+      <section class="body-map-section">
+        <h2 class="section-title">Mapa dos Desejos</h2>
+        <div class="body-map-container">
+          <p class="body-map-intro">Descubra o que penso sobre cada parte de você... 👀🔥</p>
+          <svg class="body-map" viewBox="0 0 200 400" id="bodyMap">
+            <!-- Cabeça -->
+            <ellipse cx="100" cy="40" rx="30" ry="35" class="body-part" data-part="face" />
+            
+            <!-- Pescoço -->
+            <rect x="85" y="70" width="30" height="25" class="body-part" data-part="neck" />
+            
+            <!-- Ombros -->
+            <line x1="55" y1="95" x2="145" y2="95" stroke="#262626" stroke-width="15" class="body-part" data-part="shoulders" />
+            
+            <!-- Braços -->
+            <rect x="40" y="95" width="15" height="80" class="body-part" data-part="arms" />
+            <rect x="145" y="95" width="15" height="80" class="body-part" data-part="arms" />
+            
+            <!-- Mãos -->
+            <ellipse cx="47" cy="185" rx="12" ry="15" class="body-part" data-part="hands" />
+            <ellipse cx="153" cy="185" rx="12" ry="15" class="body-part" data-part="hands" />
+            
+            <!-- Torso -->
+            <rect x="70" y="95" width="60" height="100" rx="10" class="body-part" data-part="torso" />
+            
+            <!-- Cintura -->
+            <rect x="75" y="195" width="50" height="30" class="body-part" data-part="waist" />
+            
+            <!-- Quadril -->
+            <ellipse cx="100" cy="240" rx="35" ry="25" class="body-part" data-part="hips" />
+            
+            <!-- Pernas -->
+            <rect x="70" y="265" width="25" height="100" class="body-part" data-part="legs" />
+            <rect x="105" y="265" width="25" height="100" class="body-part" data-part="legs" />
+            
+            <!-- Pés -->
+            <ellipse cx="82" cy="375" rx="15" ry="10" class="body-part" data-part="feet" />
+            <ellipse cx="118" cy="375" rx="15" ry="10" class="body-part" data-part="feet" />
+            
+            <!-- Boca (destaque) -->
+            <ellipse cx="100" cy="50" rx="8" ry="4" class="body-part mouth" data-part="lips" fill="#f43f5e" />
+          </svg>
+          <div class="body-map-message" id="bodyMapMessage"></div>
+        </div>
+      </section>
+
+      <!-- Mensagem Final -->
+      <section class="final-section">
+        <div class="final-box">
+          <h2 class="final-title">Você completou tudo...</h2>
+          <p class="final-message">Agora você sabe o quanto te desejo, te admiro e te quero. Cada desafio aqui foi pensado com carinho... e muito desejo. Mal posso esperar para ter você nos meus braços de novo.</p>
+          <div class="final-heart">❤️‍🔥</div>
+          <p class="final-signature">Com todo meu amor e desejo,<br>Seu amor</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="devotional-footer">
+      <p>Feito com todo meu amor e desejo para você ♡</p>
+      <p class="footer-hearts">🔥 ♡ 🔥</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
