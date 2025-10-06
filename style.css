@@ -5,28 +5,25 @@
 }
 
 :root {
-  --rose-100: #ffe4e6;
-  --rose-200: #fecdd3;
-  --rose-300: #fda4af;
-  --rose-400: #fb7185;
-  --rose-500: #f43f5e;
-  --rose-600: #e11d48;
-  --rose-700: #be123c;
-  --pink-50: #fdf2f8;
-  --pink-100: #fce7f3;
-  --neutral-50: #fafafa;
-  --neutral-100: #f5f5f5;
-  --neutral-200: #e5e5e5;
-  --neutral-700: #404040;
-  --neutral-800: #262626;
-  --neutral-900: #171717;
+  --soft-pink: #ffc9d9;
+  --baby-pink: #ffe4ed;
+  --peach: #ffd6ba;
+  --lavender: #e5d9f2;
+  --cream: #fff8f3;
+  --mint: #d4f1d4;
+  --sky: #cfe7f7;
+  --warm-white: #fffbf7;
+  --soft-gray: #b8b4b0;
+  --text-soft: #6b5d5d;
+  --rose-soft: #f4a5b9;
+  --purple-soft: #c9a9d9;
 }
 
 body {
   font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-  color: var(--neutral-800);
-  line-height: 1.7;
+  background: linear-gradient(135deg, #fff8f3 0%, #ffe4ed 50%, #e5d9f2 100%);
+  color: var(--text-soft);
+  line-height: 1.8;
   min-height: 100vh;
   padding: 40px 20px;
   position: relative;
@@ -46,10 +43,11 @@ body {
 
 .heart-float {
   position: absolute;
-  font-size: 28px;
-  color: var(--rose-300);
-  opacity: 0.2;
+  font-size: 32px;
+  color: var(--soft-pink);
+  opacity: 0.25;
   animation: floatHeart 15s infinite ease-in-out;
+  filter: blur(0.5px);
 }
 
 .heart-float:nth-child(1) {
@@ -94,10 +92,10 @@ body {
     opacity: 0;
   }
   10% {
-    opacity: 0.2;
+    opacity: 0.25;
   }
   90% {
-    opacity: 0.2;
+    opacity: 0.25;
   }
   100% {
     transform: translateY(-100px) rotate(360deg);
@@ -109,92 +107,144 @@ body {
   position: fixed;
   top: 30px;
   right: 30px;
-  background: white;
-  border: 2px solid var(--rose-300);
-  padding: 12px 24px;
-  border-radius: 50px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffeef5 100%);
+  border: 3px solid var(--soft-pink);
+  padding: 14px 28px;
+  border-radius: 100px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(244, 63, 94, 0.15);
+  box-shadow: 0 6px 25px rgba(255, 192, 203, 0.25), 0 2px 10px rgba(255, 182, 193, 0.15);
   z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  color: var(--rose-600);
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: var(--rose-soft);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .music-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(244, 63, 94, 0.2);
-  background: var(--pink-50);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 35px rgba(255, 192, 203, 0.35), 0 4px 15px rgba(255, 182, 193, 0.2);
+  background: linear-gradient(135deg, #ffffff 0%, #ffe4ed 100%);
 }
 
 .music-toggle.playing {
-  background: var(--rose-500);
+  background: linear-gradient(135deg, var(--soft-pink) 0%, var(--lavender) 100%);
   color: white;
-  border-color: var(--rose-500);
+  border-color: var(--purple-soft);
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 6px 25px rgba(255, 192, 203, 0.35);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 192, 203, 0.45);
+  }
 }
 
 .music-icon {
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 .container {
   max-width: 900px;
   margin: 0 auto;
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #ffffff 0%, #fffbf9 100%);
+  border-radius: 32px;
+  box-shadow: 0 15px 60px rgba(255, 182, 193, 0.2), 0 5px 20px rgba(229, 217, 242, 0.15);
   overflow: hidden;
   position: relative;
   z-index: 10;
+  border: 4px solid rgba(255, 201, 217, 0.3);
 }
 
 .devotional-header {
-  background: linear-gradient(135deg, var(--rose-100) 0%, var(--pink-100) 100%);
-  padding: 80px 50px;
+  background: linear-gradient(135deg, var(--baby-pink) 0%, var(--lavender) 50%, var(--sky) 100%);
+  padding: 90px 60px;
   text-align: center;
   position: relative;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .header-sparkle {
-  font-size: 2.5em;
-  margin-bottom: 15px;
-  opacity: 0.8;
-  animation: pulse 2s ease-in-out infinite;
+  font-size: 3em;
+  margin-bottom: 20px;
+  opacity: 0.85;
+  animation: sparkle 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(255, 192, 203, 0.3));
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.15) rotate(5deg);
+    opacity: 1;
+  }
 }
 
 .devotional-header h1 {
   font-family: 'Dancing Script', cursive;
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 700;
-  margin-bottom: 15px;
-  color: var(--rose-600);
-  letter-spacing: 1px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, var(--rose-soft) 0%, var(--purple-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1.5px;
+  filter: drop-shadow(0 2px 8px rgba(255, 192, 203, 0.25));
 }
 
 .subtitle {
-  font-size: 1.4rem;
-  color: var(--neutral-700);
+  font-size: 1.5rem;
+  color: var(--text-soft);
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.verse-ref {
+  font-size: 1.15rem;
+  color: var(--text-soft);
+  font-weight: 400;
+  opacity: 0.75;
+  font-style: italic;
 }
 
 .devotional-content {
-  padding: 60px 50px;
+  padding: 70px 60px;
 }
 
 .section-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.8rem;
-  color: var(--rose-600);
-  margin-bottom: 35px;
+  font-size: 3.2rem;
+  background: linear-gradient(135deg, var(--rose-soft) 0%, var(--purple-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 40px;
   text-align: center;
   font-weight: 600;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
 .section-title::after {
@@ -203,521 +253,159 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--rose-400), transparent);
-  border-radius: 10px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--soft-pink), var(--lavender), transparent);
+  border-radius: 20px;
 }
 
-/* Desafio Secreto */
-.challenge-section {
-  margin-bottom: 70px;
+.verse-section {
+  margin-bottom: 80px;
 }
 
-.challenge-box {
-  background: linear-gradient(135deg, var(--rose-50) 0%, white 100%);
-  padding: 50px;
-  border-radius: 16px;
-  text-align: center;
-  border: 2px solid var(--rose-200);
+.verse-container {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+  padding: 55px;
+  border-radius: 28px;
+  border-left: 6px solid var(--soft-pink);
+  box-shadow: 0 8px 30px rgba(255, 192, 203, 0.15), inset 0 2px 10px rgba(255, 255, 255, 0.5);
 }
 
-.challenge-intro {
-  font-size: 1.15rem;
-  color: var(--neutral-700);
-  margin-bottom: 30px;
-}
-
-.challenge-btn {
-  background: linear-gradient(135deg, var(--rose-500) 0%, var(--rose-600) 100%);
-  color: white;
-  border: none;
-  padding: 18px 50px;
-  font-size: 1.15rem;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.3);
-  transition: all 0.3s ease;
-}
-
-.challenge-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(244, 63, 94, 0.4);
-}
-
-.challenge-result {
-  margin-top: 30px;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  border: 2px solid var(--rose-300);
-  font-size: 1.2rem;
-  color: var(--rose-700);
-  font-weight: 600;
-  line-height: 1.8;
-  display: none;
-  animation: fadeIn 0.5s ease;
-}
-
-.challenge-result.show {
-  display: block;
-}
-
-/* Roleta Picante */
-.roulette-section {
-  margin-bottom: 70px;
-}
-
-.roulette-container {
-  background: linear-gradient(135deg, var(--pink-50) 0%, white 100%);
-  padding: 50px;
-  border-radius: 16px;
-  text-align: center;
-  border: 2px solid var(--rose-200);
-}
-
-.roulette-wheel {
-  position: relative;
-  margin: 0 auto 40px;
-  width: 350px;
-  height: 350px;
-}
-
-.roulette-arrow {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 3rem;
-  color: var(--rose-600);
-  z-index: 10;
-}
-
-#rouletteCanvas {
-  border-radius: 50%;
-  box-shadow: 0 10px 40px rgba(244, 63, 94, 0.2);
-  transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
-}
-
-.roulette-btn {
-  background: linear-gradient(135deg, var(--rose-500) 0%, var(--rose-600) 100%);
-  color: white;
-  border: none;
-  padding: 18px 50px;
-  font-size: 1.15rem;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.3);
-  transition: all 0.3s ease;
-}
-
-.roulette-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(244, 63, 94, 0.4);
-}
-
-.roulette-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.roulette-result {
-  margin-top: 30px;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  border: 2px solid var(--rose-300);
-  font-size: 1.2rem;
-  color: var(--rose-700);
-  font-weight: 600;
-  line-height: 1.8;
-  display: none;
-  animation: fadeIn 0.5s ease;
-}
-
-.roulette-result.show {
-  display: block;
-}
-
-/* Quiz Apimentado */
-.quiz-section {
-  margin-bottom: 70px;
-}
-
-.quiz-container {
-  background: linear-gradient(135deg, var(--rose-50) 0%, white 100%);
-  padding: 50px;
-  border-radius: 16px;
-  border: 2px solid var(--rose-200);
-}
-
-.quiz-question {
-  font-size: 1.3rem;
-  color: var(--neutral-800);
-  margin-bottom: 30px;
-  font-weight: 600;
-  text-align: center;
-}
-
-.quiz-options {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.quiz-option {
-  background: white;
-  border: 2px solid var(--rose-300);
-  padding: 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.05rem;
-  color: var(--neutral-700);
-  text-align: center;
-}
-
-.quiz-option:hover {
-  background: var(--rose-100);
-  transform: translateX(5px);
-}
-
-.quiz-answer {
-  margin-top: 30px;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  border: 2px solid var(--rose-400);
-  font-size: 1.15rem;
-  color: var(--rose-700);
-  font-weight: 600;
-  line-height: 1.8;
-  display: none;
-  animation: fadeIn 0.5s ease;
-}
-
-.quiz-answer.show {
-  display: block;
-}
-
-/* Fotos e Recompensas */
-.photo-section {
-  margin-bottom: 70px;
-}
-
-.photo-box {
-  background: linear-gradient(135deg, var(--pink-50) 0%, white 100%);
-  padding: 50px;
-  border-radius: 16px;
-  border: 2px solid var(--rose-200);
-}
-
-.photo-intro {
-  font-size: 1.15rem;
-  color: var(--neutral-700);
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.photo-challenges {
-  display: grid;
-  gap: 20px;
-}
-
-.photo-challenge-item {
-  background: white;
-  border: 2px solid var(--rose-300);
-  padding: 25px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.photo-challenge-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.15);
-}
-
-.photo-challenge-text {
+.verse {
+  margin-bottom: 28px;
   font-size: 1.1rem;
-  color: var(--neutral-800);
-  font-weight: 500;
+  color: var(--text-soft);
+  line-height: 2;
+  padding: 8px 0;
 }
 
-.photo-challenge-icon {
-  font-size: 2rem;
-}
-
-/* Mensagem Codificada */
-.coded-section {
-  margin-bottom: 70px;
-}
-
-.coded-box {
-  background: linear-gradient(135deg, var(--rose-50) 0%, white 100%);
-  padding: 50px;
-  border-radius: 16px;
-  text-align: center;
-  border: 2px solid var(--rose-200);
-}
-
-.coded-message {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  border: 2px solid var(--rose-300);
-  font-size: 1.2rem;
-  color: var(--neutral-800);
-  line-height: 1.9;
-  margin-bottom: 30px;
-  transition: all 0.5s ease;
-}
-
-.coded-message.blurred {
-  filter: blur(10px);
-  user-select: none;
-}
-
-.unlock-btn {
-  background: linear-gradient(135deg, var(--rose-500) 0%, var(--rose-600) 100%);
-  color: white;
-  border: none;
-  padding: 18px 50px;
-  font-size: 1.15rem;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.3);
-  transition: all 0.3s ease;
-}
-
-.unlock-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(244, 63, 94, 0.4);
-}
-
-.unlock-challenge {
-  margin-top: 30px;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  border: 2px solid var(--rose-300);
-  font-size: 1.1rem;
-  color: var(--neutral-800);
-  display: none;
-  animation: fadeIn 0.5s ease;
-}
-
-.unlock-challenge.show {
-  display: block;
-}
-
-.unlock-input {
-  width: 100%;
-  padding: 15px;
-  border: 2px solid var(--rose-300);
-  border-radius: 12px;
-  font-size: 1.05rem;
-  margin-top: 15px;
-  font-family: 'Quicksand', sans-serif;
-}
-
-.unlock-submit {
-  background: var(--rose-500);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-top: 15px;
-  transition: all 0.3s ease;
-}
-
-.unlock-submit:hover {
-  background: var(--rose-600);
-  transform: translateY(-2px);
-}
-
-/* Playlist Secreta */
-.playlist-section {
-  margin-bottom: 70px;
-}
-
-.playlist-box {
-  background: linear-gradient(135deg, var(--pink-50) 0%, white 100%);
-  padding: 50px;
-  border-radius: 16px;
-  border: 2px solid var(--rose-200);
-}
-
-.playlist-intro {
-  font-size: 1.15rem;
-  color: var(--neutral-700);
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.playlist-items {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.playlist-item {
-  background: white;
-  border: 2px solid var(--rose-300);
-  padding: 20px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  transition: all 0.3s ease;
-}
-
-.playlist-item:hover {
-  transform: translateX(5px);
-  box-shadow: 0 5px 20px rgba(244, 63, 94, 0.15);
-}
-
-.song-icon {
-  font-size: 2rem;
-}
-
-.song-info {
-  flex: 1;
-}
-
-.song-name {
-  font-size: 1.1rem;
-  color: var(--neutral-800);
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.song-desc {
-  font-size: 0.95rem;
-  color: var(--neutral-700);
-  font-style: italic;
-}
-
-.playlist-btn {
+.verse-number {
   display: inline-block;
-  background: linear-gradient(135deg, var(--rose-500) 0%, var(--rose-600) 100%);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--rose-soft) 0%, var(--purple-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-right: 14px;
+  font-size: 0.95rem;
+  min-width: 36px;
+  text-align: center;
+}
+
+.reflection-section {
+  margin-bottom: 80px;
+}
+
+.reflection-box {
+  background: linear-gradient(135deg, #fffbf9 0%, #fff8f5 100%);
+  padding: 55px;
+  border-radius: 28px;
+  border: 3px solid var(--baby-pink);
+  position: relative;
+  box-shadow: 0 10px 40px rgba(255, 182, 193, 0.2), inset 0 2px 15px rgba(255, 255, 255, 0.6);
+}
+
+.reflection-box::before {
+  position: absolute;
+  top: -25px;
+  left: 45px;
+  font-size: 3em;
+  background: linear-gradient(135deg, #ffffff 0%, #ffeef5 100%);
+  padding: 8px 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(255, 192, 203, 0.3);
+}
+
+.reflection-box p {
+  margin-bottom: 26px;
+  font-size: 1.2rem;
+  color: var(--text-soft);
+  line-height: 2;
+}
+
+.reflection-box p:last-child {
+  margin-bottom: 0;
+}
+
+.interactive-section {
+  margin-bottom: 60px;
+}
+
+.secret-container {
+  text-align: center;
+  padding: 70px 50px;
+  background: linear-gradient(135deg, var(--baby-pink) 0%, var(--lavender) 100%);
+  border-radius: 28px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(255, 182, 193, 0.25), inset 0 2px 15px rgba(255, 255, 255, 0.3);
+}
+
+.secret-btn {
+  background: linear-gradient(135deg, var(--soft-pink) 0%, var(--purple-soft) 100%);
   color: white;
   border: none;
-  padding: 18px 50px;
-  font-size: 1.15rem;
-  border-radius: 50px;
+  padding: 20px 55px;
+  font-size: 1.2rem;
+  border-radius: 100px;
   cursor: pointer;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.3);
-  transition: all 0.3s ease;
-  text-decoration: none;
+  letter-spacing: 0.8px;
+  box-shadow: 0 10px 30px rgba(255, 182, 193, 0.35), 0 4px 12px rgba(201, 169, 217, 0.25);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 3px solid rgba(255, 255, 255, 0.5);
 }
 
-.playlist-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(244, 63, 94, 0.4);
+.secret-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 45px rgba(255, 182, 193, 0.45), 0 6px 18px rgba(201, 169, 217, 0.35);
+  background: linear-gradient(135deg, var(--rose-soft) 0%, var(--soft-pink) 100%);
 }
 
-/* Mapa do Corpo */
-.body-map-section {
-  margin-bottom: 70px;
+.secret-btn:active {
+  transform: translateY(-2px) scale(1.02);
 }
 
-.body-map-container {
-  background: linear-gradient(135deg, var(--rose-50) 0%, white 100%);
-  padding: 50px;
-  border-radius: 16px;
-  text-align: center;
-  border: 2px solid var(--rose-200);
+.message {
+  display: none;
+  margin-top: 45px;
+  padding: 45px;
+  background: linear-gradient(135deg, #ffffff 0%, #fffbf9 100%);
+  border-radius: 24px;
+  border: 3px solid var(--soft-pink);
+  animation: fadeInMessage 0.6s ease;
+  box-shadow: 0 12px 40px rgba(255, 182, 193, 0.3), inset 0 2px 15px rgba(255, 255, 255, 0.5);
 }
 
-.body-map-intro {
-  font-size: 1.15rem;
-  color: var(--neutral-700);
-  margin-bottom: 30px;
-}
-
-.body-map {
-  max-width: 300px;
-  margin: 0 auto 30px;
+.message.show {
   display: block;
 }
 
-.body-part {
-  fill: var(--rose-100);
-  stroke: var(--rose-400);
-  stroke-width: 2;
-  cursor: pointer;
-  transition: all 0.3s ease;
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(-25px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.body-part:hover {
-  fill: var(--rose-300);
-  transform: scale(1.05);
-}
-
-.body-map-message {
-  margin-top: 30px;
-  padding: 30px;
-  background: white;
-  border-radius: 12px;
-  border: 2px solid var(--rose-400);
-  font-size: 1.15rem;
-  color: var(--rose-700);
+.special-message {
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--rose-soft) 0%, var(--purple-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 35px;
   font-weight: 600;
   line-height: 1.8;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-style: italic;
 }
 
-/* Mensagem Final */
-.final-section {
-  margin-bottom: 50px;
-}
-
-.final-box {
-  background: linear-gradient(135deg, var(--rose-100) 0%, var(--pink-100) 100%);
-  padding: 60px 50px;
-  border-radius: 16px;
-  text-align: center;
-  border: 3px solid var(--rose-400);
-}
-
-.final-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
-  color: var(--rose-600);
-  margin-bottom: 25px;
-}
-
-.final-message {
-  font-size: 1.2rem;
-  color: var(--neutral-800);
-  line-height: 1.9;
-  margin-bottom: 30px;
-}
-
-.final-heart {
-  font-size: 5rem;
-  margin: 30px 0;
-  animation: heartbeatPulse 1.5s infinite;
+.heart {
+  font-size: 5.5em;
+  animation: heartbeatPulse 1.8s infinite;
+  filter: drop-shadow(0 4px 15px rgba(255, 182, 193, 0.4));
 }
 
 @keyframes heartbeatPulse {
@@ -725,61 +413,39 @@ body {
     transform: scale(1);
   }
   10% {
-    transform: scale(1.1);
+    transform: scale(1.15);
   }
   20% {
     transform: scale(1);
   }
   30% {
-    transform: scale(1.1);
+    transform: scale(1.15);
   }
   40% {
     transform: scale(1);
   }
 }
 
-.final-signature {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
-  color: var(--rose-700);
-  font-weight: 600;
-}
-
 .devotional-footer {
-  background: linear-gradient(135deg, var(--rose-100) 0%, var(--pink-100) 100%);
-  padding: 40px;
+  background: linear-gradient(135deg, var(--baby-pink) 0%, var(--lavender) 50%, var(--sky) 100%);
+  padding: 45px;
   text-align: center;
-  color: var(--neutral-700);
-  font-size: 1rem;
+  color: var(--text-soft);
+  font-size: 1.05rem;
 }
 
 .devotional-footer p {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
 .footer-hearts {
-  font-size: 1.8em;
-  color: var(--rose-500);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
+  font-size: 2em;
+  background: linear-gradient(135deg, var(--rose-soft) 0%, var(--purple-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(255, 192, 203, 0.3));
 }
 
 @media (max-width: 768px) {
@@ -790,99 +456,78 @@ body {
   .music-toggle {
     top: 20px;
     right: 20px;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 12px 22px;
+    font-size: 0.95rem;
   }
 
   .devotional-header {
-    padding: 60px 30px;
+    padding: 70px 35px;
   }
 
   .devotional-header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .devotional-content {
-    padding: 40px 30px;
+    padding: 50px 35px;
   }
 
-  .challenge-box,
-  .roulette-container,
-  .quiz-container,
-  .photo-box,
-  .coded-box,
-  .playlist-box,
-  .body-map-container,
-  .final-box {
-    padding: 30px;
+  .verse-container {
+    padding: 35px;
+  }
+
+  .reflection-box {
+    padding: 35px;
   }
 
   .section-title {
-    font-size: 2.3rem;
+    font-size: 2.6rem;
   }
 
-  .roulette-wheel {
-    width: 280px;
-    height: 280px;
+  .verse {
+    font-size: 1.05rem;
   }
 
-  #rouletteCanvas {
-    width: 280px;
-    height: 280px;
+  .reflection-box p {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .devotional-header {
-    padding: 50px 25px;
+    padding: 60px 28px;
   }
 
   .devotional-header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
 
   .devotional-content {
-    padding: 35px 25px;
+    padding: 40px 28px;
   }
 
-  .challenge-box,
-  .roulette-container,
-  .quiz-container,
-  .photo-box,
-  .coded-box,
-  .playlist-box,
-  .body-map-container,
-  .final-box {
-    padding: 25px;
+  .verse-container {
+    padding: 28px;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .reflection-box {
+    padding: 28px;
   }
 
-  .challenge-btn,
-  .roulette-btn,
-  .unlock-btn,
-  .playlist-btn {
-    padding: 16px 40px;
-    font-size: 1.05rem;
+  .secret-btn {
+    padding: 18px 45px;
+    font-size: 1.1rem;
   }
 
-  .roulette-wheel {
-    width: 250px;
-    height: 250px;
-  }
-
-  #rouletteCanvas {
-    width: 250px;
-    height: 250px;
+  .secret-container {
+    padding: 55px 28px;
   }
 }
